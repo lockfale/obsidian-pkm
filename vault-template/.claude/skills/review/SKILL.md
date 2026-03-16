@@ -32,7 +32,7 @@ HOUR=$(date +%H)
 ```
 
 - **Before noon (< 12):** Morning routine — delegate to `/daily` morning workflow
-- **After 5 PM (>= 17):** Evening shutdown — delegate to `/daily` evening workflow
+- **After 5 PM (>= 17):** Evening shutdown — delegate to `/close-day`
 - **Midday (12-17):** Midday check-in — delegate to `/daily` midday workflow
 
 ### 2. Check the Day of Week
@@ -83,7 +83,7 @@ After detecting context:
 
 ### Delegation
 
-This skill does NOT duplicate the logic of `/daily`, `/weekly`, or `/monthly`. It:
+This skill does NOT duplicate the logic of `/daily`, `/close-day`, `/weekly`, or `/monthly`. It:
 1. Detects context
 2. Informs the user
 3. Follows the instructions from the target skill's SKILL.md
@@ -117,7 +117,8 @@ Launching weekly review...
 ## Integration
 
 Works with:
-- `/daily` — Morning, midday, and evening routines
+- `/daily` — Morning and midday routines
+- `/close-day` — Evening end-of-day processing
 - `/weekly` — Full weekly review process
 - `/monthly` — Monthly review and planning
 - Session init hook — Staleness data already calculated

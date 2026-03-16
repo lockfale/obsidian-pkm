@@ -197,4 +197,3 @@ Works with:
 - `/goal-tracking` - Quarterly milestone progress
 - `/project status` - Project progress feeds monthly assessment
 - `/daily` - Next month's plan informs daily priorities
-- `/push` - Commit after completing review

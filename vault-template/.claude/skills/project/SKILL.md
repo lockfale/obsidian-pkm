@@ -164,4 +164,3 @@ Works with:
 - `/weekly` - Project status in weekly review
 - `/goal-tracking` - Project progress feeds goal calculations
 - `/onboard` - Discover and load project context
-- `/push` - Commit project changes

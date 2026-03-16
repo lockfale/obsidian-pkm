@@ -107,14 +107,21 @@ Then proceed to the standard context loading below.
    - Extracts project name, phase, progress, and goal linkage
    - Displays active project count and summary in onboard output
 
-4. **Reads User Preferences**
+4. **Loads Domain Context Files**
+   - Auto-discovers all `Context/*.md` files (created by `/create-context`)
+   - These contain deep domain knowledge: key facts, people, decisions, open questions, and resource links
+   - Context files complement project CLAUDE.md files — CLAUDE.md tracks operational status, Context files capture accumulated domain understanding
+   - Include a summary of loaded context domains in onboard output (e.g., "Loaded 2 domain contexts: AI Workflow Integration, Account Scoring")
+
+5. **Reads User Preferences**
    - Loads `vault-config.json` if present
    - Applies name, review day, work style preferences
    - Uses goal areas to prioritize context loading
 
-5. **Builds Understanding**
+6. **Builds Understanding**
    - Your personal mission/goals
    - Project structures and status
+   - Domain knowledge and decisions
    - Workflow preferences
    - Custom conventions
 
@@ -123,14 +130,17 @@ Then proceed to the standard context loading below.
 ```
 vault/
 ├── CLAUDE.md                 # [1] Global context - loaded first
+├── Context/
+│   ├── Domain A.md           # [2] Domain context (from /create-context)
+│   └── Domain B.md           # [3] Domain context
 ├── Projects/
 │   ├── Project A/
-│   │   └── CLAUDE.md         # [2] Project context
+│   │   └── CLAUDE.md         # [4] Project context
 │   └── Project B/
-│       └── CLAUDE.md         # [3] Another project context
+│       └── CLAUDE.md         # [5] Another project context
 └── Areas/
     └── Health/
-        └── CLAUDE.md         # [4] Area-specific context
+        └── CLAUDE.md         # [6] Area-specific context
 ```
 
 ## CLAUDE.md File Structure
@@ -189,11 +199,22 @@ When loading full context, include a project overview:
 | [[ProjectB]] | Planning | 10% | [[Goal 3]] |
 ```
 
+### Domain Context Summary
+When context files exist, include a domain overview:
+```markdown
+### Domain Context (N)
+| Domain | Key Focus | Open Questions |
+|--------|-----------|----------------|
+| AI Workflow Integration | IOC extractor at 50%, 7 workflows identified | Jira MCP blocker, scope creep |
+| Account Scoring | Production system, ML roadmap forming | ML vs rule-based balance |
+```
+
 ### Selective Loading
 For focused assistance:
 ```
 /onboard Projects/WebApp      # Only specific project
 /onboard Goals                # Only goals context
+/onboard Context/AccountScoring  # Only specific domain context
 ```
 
 ## Use Cases
@@ -263,6 +284,7 @@ Your CLAUDE.md files can include preferences:
 
 Works with:
 - All other skills (provides context)
+- `/create-context` - Generates the domain context files that onboard loads from `Context/`
 - `/daily` - Better daily planning with context
 - `/weekly` - Informed weekly reviews
 - `/monthly` - Monthly review with full context

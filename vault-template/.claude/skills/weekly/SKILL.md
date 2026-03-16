@@ -85,7 +85,6 @@ The skill guides you through:
 - [ ] Block time for important work
 - [ ] Clean digital workspace
 - [ ] Archive completed items
-- [ ] Commit changes to Git
 
 ## Weekly Review Note Format
 
@@ -257,6 +256,5 @@ Works with:
 - `/daily` - Reviews daily notes from the week
 - `/monthly` - Weekly reviews feed monthly rollup
 - `/project` - Project status in review
-- `/push` - Commit after completing review
 - `/onboard` - Load context for informed review
 - Goal tracking skill - Progress calculations
