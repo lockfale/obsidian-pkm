@@ -78,8 +78,8 @@ customize_mission() {
         fi
 
         # Update mission line in Daily Template placeholder
-        if [ -f "Templates/Daily Template.md" ]; then
-            cp "Templates/Daily Template.md" "Templates/Daily Template.md.bak"
+        if [ -f "Admin/Templates/Daily Template.md" ]; then
+            cp "Admin/Templates/Daily Template.md" "Templates/Daily Template.md.bak"
             if [[ "$OSTYPE" == "darwin"* ]]; then
                 sed -i '' "s/_\[CUSTOMIZE THIS: Add your personal mission statement or daily reminder here\]_/_$MISSION_/" "Templates/Daily Template.md"
             else
@@ -201,7 +201,7 @@ customize_daily() {
     read -p "Your habits: " HABITS
     
     # Generate custom template
-    cat > "Templates/Daily Template - Custom.md" << EOF
+    cat > "Admin/Templates/Daily Template - Custom.md" << EOF
 ---
 date: {{date}}
 tags: daily-note
@@ -227,19 +227,19 @@ EOF
     IFS=',' read -ra CATS <<< "$CATEGORIES"
     for cat in "${CATS[@]}"; do
         cat=$(echo "$cat" | xargs)  # Trim whitespace
-        echo -e "\n### $cat\n- [ ] " >> "Templates/Daily Template - Custom.md"
+        echo -e "\n### $cat\n- [ ] " >> "Admin/Templates/Daily Template - Custom.md"
     done
     
     # Add habits section
-    echo -e "\n## 🧘 Habits" >> "Templates/Daily Template - Custom.md"
+    echo -e "\n## 🧘 Habits" >> "Admin/Templates/Daily Template - Custom.md"
     IFS=',' read -ra HABS <<< "$HABITS"
     for hab in "${HABS[@]}"; do
         hab=$(echo "$hab" | xargs)
-        echo "- [ ] $hab" >> "Templates/Daily Template - Custom.md"
+        echo "- [ ] $hab" >> "Admin/Templates/Daily Template - Custom.md"
     done
     
     # Add reflection
-    cat >> "Templates/Daily Template - Custom.md" << EOF
+    cat >> "Admin/Templates/Daily Template - Custom.md" << EOF
 
 ## 💭 Notes & Ideas
 
@@ -286,7 +286,7 @@ customize_weekly() {
     REVIEW_DURATION=${REVIEW_DURATION:-30}
     
     # Create custom weekly review
-    cat > "Templates/Weekly Review - Custom.md" << EOF
+    cat > "Admin/Templates/Weekly Review - Custom.md" << EOF
 # Weekly Review - {{date:YYYY [Week] w}}
 **Review Time:** $REVIEW_DAY ($REVIEW_DURATION minutes)
 
@@ -559,7 +559,7 @@ EOF
 3. Places in correct folder
 
 ## Configuration
-const TEMPLATE_PATH = "Templates/$TEMPLATE.md";
+const TEMPLATE_PATH = "Admin/Templates/$TEMPLATE.md";
 const OUTPUT_FOLDER = "[CUSTOMIZE]";
 EOF
             ;;

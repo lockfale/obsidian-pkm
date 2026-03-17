@@ -191,7 +191,7 @@ set DAILY_NOTE=%VAULT_PATH%\Daily Notes\%TODAY%.md
 
 if not exist "%DAILY_NOTE%" (
     echo Creating your first daily note...
-    copy "%VAULT_PATH%\Templates\Daily Template.md" "%DAILY_NOTE%" >nul
+    copy "%VAULT_PATH%\Admin\Templates\Daily Template.md" "%DAILY_NOTE%" >nul
     echo [OK] First daily note created: %TODAY%.md
 )
 

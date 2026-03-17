@@ -292,7 +292,7 @@ DAILY_NOTE="$VAULT_PATH/Daily Notes/$TODAY.md"
 
 if [ ! -f "$DAILY_NOTE" ]; then
     print_info "Creating your first daily note..."
-    cp "$VAULT_PATH/Templates/Daily Template.md" "$DAILY_NOTE"
+    cp "$VAULT_PATH/Admin/Templates/Daily Template.md" "$DAILY_NOTE"
     
     # Add focus to daily note
     if [ -n "$FOCUS" ]; then
