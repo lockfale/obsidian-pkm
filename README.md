@@ -1,4 +1,4 @@
-**📊 [Take the quick poll](https://github.com/ballred/obsidian-claude-pkm/discussions/4)** - Help shape what gets built next!
+**Forked from https://github.com/ballred/obsidian-claude-pkm/**
 
 ---
 
@@ -77,8 +77,8 @@ claude
 ### Windows
 
 ```bash
-git clone https://github.com/ballred/obsidian-claude-pkm.git
-cd obsidian-claude-pkm
+git clone https://github.com/lockfale/obsidian-pkm.git
+cd obsidian-pkm
 scripts\setup.bat
 ```
 
@@ -202,7 +202,7 @@ chmod +x your-vault/.claude/hooks/*.sh
 
 ## Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Good first issues are labeled — check the [issues page](https://github.com/ballred/obsidian-claude-pkm/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. 
 
 ## License
 
